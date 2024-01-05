@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Noto+Sans+KR&family=Roboto:wght@100&family=Rubik+Bubbles&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Archivo", "NotoSansCJKkr";
+}
+body {
+  font-family: "Archivo", "NotoSansCJKkr";
+  word-break: keep-all;
+  overflow-x: hidden;
+  transition: background-color 0.5s;
+  background-color: #000;
+}
+body.dark {
+  background-color: #000;
+}
+[lang="en"] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  body {
+    font-family: "Archivo";
+  }
+}
+body.scroll-none {
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+input,
+select,
+textarea,
+button,
+a {
+  border-width: 0;
+  background: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  -webkit-border-radius: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+}
+input:focus {
+  outline: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+  }
+}
+.font-archivo {
+  font-family: "Archivo";
+}
+.font-notosans {
+  font-family: "NotoSansCJKkr";
+}

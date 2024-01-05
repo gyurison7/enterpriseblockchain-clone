@@ -1,0 +1,54 @@
+@import url("./reset.css");
+@import url("./common.css");
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  z-index: 100;
+  transform: translateY(-100%);
+}
+.header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 17px auto;
+  padding: 0 100px;
+}
+.header .logo {
+  width: 100px;
+  height: 100px;
+}
+.header .logo-img {
+  width: 100%;
+  filter: brightness(0) invert(1);
+  transition: filter 0.5s;
+}
+.header .logo-img.black {
+  filter: brightness(0) invert(0);
+}
+.gnb .gnb-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gnb .gnb-list li {
+  display: inline-block;
+  padding: 23px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+.gnb .gnb-list li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transform: translateY(y);
+}
+.gnb.black svg path,
+.gnb.black .gnb-list li {
+  color: #000;
+  stroke: #000;
+}

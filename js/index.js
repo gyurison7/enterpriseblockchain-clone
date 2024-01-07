@@ -18,6 +18,13 @@ ScrollTrigger.create({
   },
 });
 
+$(".btn-lang").click(function () {
+  $(".select-lang").toggle();
+});
+$(".lang-item").click(function (e) {
+  $(this).addClass("active").siblings().removeClass("active");
+});
+
 // sc-intro
 let introMotion = gsap.timeline({
   scrollTrigger: {
@@ -50,6 +57,17 @@ gsap.to(".sc-intro-bg", {
   opacity: 1,
 });
 
+gsap.to(".scroll-down", {
+  scrollTrigger: {
+    trigger: ".sc-intro",
+    start: "92% 50%",
+    end: "100% 100%",
+    // markers: true,
+    toggleActions: "play none none reverse",
+  },
+  opacity: 0,
+});
+
 // sc-showcase
 let showcaseMotion = gsap.timeline({
   scrollTrigger: {
@@ -67,7 +85,7 @@ showcaseMotion
   .to(".showcase-bg", { opacity: 0 }, "after")
   .to(".intro-text", { opacity: 0 }, "after");
 
-gsap.to(".showcase-description", {
+let motion = gsap.timeline({
   scrollTrigger: {
     trigger: ".showcase-area.last",
     start: "0% 0%",
@@ -75,8 +93,10 @@ gsap.to(".showcase-description", {
     scrub: true,
     toggleActions: "play none none reverse",
   },
-  opacity: 1,
 });
+motion
+  .to(".showcase-description", { opacity: 1 })
+  .to(".showcase-bg", { opacity: 1 });
 
 // sc-challenge
 ScrollTrigger.create({
@@ -104,8 +124,8 @@ let proveMotion = gsap.timeline({
   },
 });
 proveMotion
-  .to(".prove-box-before", { width: "68%" }, "motion")
-  .to(".prove-box-after", { width: "68%" }, "motion")
+  .to(".box-before-prove", { width: "68%" }, "motion")
+  .to(".box-after-prove", { width: "68%" }, "motion")
   .to(".prove-content p:first-child", { x: -200 }, "motion")
   .to(".prove-content p:last-child", { x: 500 }, "motion");
 
@@ -117,18 +137,12 @@ ScrollTrigger.create({
   scrub: true,
   // markers: true,
   onEnter: function () {
-    $(".container").addClass("dark");
-    $(".sc-gallery").addClass("dark");
-    $(".sc-possible").addClass("dark");
-    $(".logo-img").removeClass("black");
-    $(".gnb").removeClass("black");
+    $(".container, .sc-gallery, .sc-possible").addClass("dark");
+    $(".logo-img, .gnb").removeClass("black");
   },
   onLeaveBack: function () {
-    $(".container").removeClass("dark");
-    $(".sc-gallery").removeClass("dark");
-    $(".sc-possible").removeClass("dark");
-    $(".logo-img").addClass("black");
-    $(".gnb").addClass("black");
+    $(".container, .sc-gallery, .sc-possible").removeClass("dark");
+    $(".logo-img, .gnb").addClass("black");
   },
 });
 
@@ -153,7 +167,7 @@ let bannerMotion = gsap.timeline({
     start: "0% 100%",
     end: "100% 0%",
     scrub: true,
-    markers: true,
+    // markers: true,
   },
 });
 bannerMotion
@@ -163,6 +177,7 @@ bannerMotion
   .to(".banner-content", { opacity: 1 }, "motion2")
   .to(".box-container .box", { filter: "blur(50px)" }, "motion2");
 
+// sc-safe
 // safe-slide 가로 이동
 gsap.to(".safe-slide", {
   scrollTrigger: {
@@ -170,9 +185,10 @@ gsap.to(".safe-slide", {
     start: "10% 0%",
     end: "300% 0%",
     scrub: true,
+    toggleActions: "play none none reverse",
     // markers: true,
   },
-  x: "-10%",
+  x: "-592px",
 });
 
 // safe-slide 가로 이동
@@ -180,17 +196,123 @@ let boxMotion = gsap.timeline({
   scrollTrigger: {
     trigger: ".safe-slide",
     start: "200% 0%",
-    end: "600% 0%",
+    end: "700% 0%",
     scrub: true,
+    toggleActions: "play none none reverse",
     // markers: true,
   },
 });
 boxMotion
-  .to(".card-item2", { x: "-100%" }, "motion")
-  .to(".card-item3", { x: "-200%" }, "motion")
-  .to(".card-item4", { x: "-300%" }, "motion")
-  .to(".card-item2", { x: "-=40px" }, "motion")
-  .to(".card-item3", { x: "-=80px" }, "motion")
-  .to(".card-item4", { x: "-=120px" }, "motion")
-  .to(".icon-unlock", { opacity: 0 }, "motion+=0.1")
-  .to(".icon-lock", { opacity: 1 }, "motion+=0.1");
+  .to(".safe-slide .card-item2", { x: "-440px" }, "motion")
+  .to(".safe-slide .card-item3", { x: "-880px" }, "motion")
+  .to(".safe-slide .card-item4", { x: "-1320px" }, "motion")
+  .to(".safe-slide .icon-unlock", { opacity: 0 }, "motion")
+  .to(".safe-slide .icon-lock", { opacity: 1 }, "motion");
+
+// sc-service
+let serviceMotion = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-service",
+    start: "0% 20%",
+    end: "50% 0%",
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+});
+serviceMotion
+  .to(".sc-safe .safe-item", { opacity: 0, duration: 0 })
+  .to(".sc-safe .color-card", { opacity: 0, duration: 0 })
+  .to(".sc-service .color-card", { opacity: 1, duration: 0 })
+  .to(".sc-service .card-text", { opacity: 1 });
+
+// sc-service card-list 가로 이동
+let cardMotion = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-service .card-list",
+    start: "20% 0%",
+    end: "100% 0%",
+    scrub: true,
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+});
+cardMotion
+  .to(".sc-service .card-item1", { x: "-440px" }, "motion")
+  .to(".sc-service .card-item2", { x: "-880px" }, "motion")
+  .to(".sc-service .card-item3", { x: "-1320px" }, "motion")
+  .to(".sc-service .card-item1", { opacity: 0 }, "motion2")
+  .to(".sc-service .card-item2", { opacity: 0 }, "motion2")
+  .to(".sc-service .card-item3", { opacity: 0 }, "motion2")
+  .to(".sc-service .service-outro", { opacity: 1, duration: 0 }, "motion2");
+
+// sc-talent
+ScrollTrigger.create({
+  trigger: ".sc-talent",
+  start: "0% 50%",
+  end: "100% 0%",
+  scrub: true,
+  // markers: true,
+  onEnter: function () {
+    $(".sc-talent, .sc-service").addClass("light");
+    $(".logo-img, .gnb").addClass("black");
+  },
+  onLeaveBack: function () {
+    $(".sc-talent, .sc-service").removeClass("light");
+    $(".logo-img, .gnb").removeClass("black");
+  },
+});
+
+// sc-global
+let globalMotion = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sc-global",
+    start: "0% 70%",
+    end: "100% 0%",
+    scrub: true,
+    // markers: true,
+  },
+});
+globalMotion
+  .to(".box-before-global", { width: "68%" }, "motion")
+  .to(".box-after-global", { width: "68%" }, "motion")
+  .to(".global-content p:first-child", { x: -500 }, "motion")
+  .to(".global-content p:last-child", { x: 700 }, "motion");
+
+// finance-slide 가로 이동
+gsap.to(".finance-slide", {
+  scrollTrigger: {
+    trigger: ".finance-slide",
+    start: "10% 0%",
+    end: "100% 0%",
+    scrub: true,
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+  x: "-31%",
+});
+
+// sc-creator
+gsap.to(".creator-content", {
+  scrollTrigger: {
+    trigger: ".creator-content",
+    start: "0% 20%",
+    end: "100% 0%",
+    scrub: true,
+    toggleActions: "play reverse play reverse",
+    // markers: true,
+  },
+  opacity: 1,
+});
+
+// smart-slide 가로 이동
+gsap.to(".smart-slide", {
+  scrollTrigger: {
+    trigger: ".smart-slide",
+    start: "10% 0%",
+    end: "100% 0%",
+    scrub: true,
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+  x: "-49%",
+});

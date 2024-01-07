@@ -26,10 +26,10 @@
         </h1>
         <nav class="gnb">
           <ul class="gnb-list">
-            <li><a href="">시나리오보기</a></li>
-            <li><a href="">제휴문의</a></li>
-            <li>
-              <a href="">
+            <li class="gnb-item"><a href="">시나리오보기</a></li>
+            <li class="gnb-item"><a href="">제휴문의</a></li>
+            <li class="gnb-item">
+              <button class="btn-lang">
                 <span>
                   <svg
                     width="24"
@@ -67,7 +67,11 @@
                     ></path>
                   </svg>
                 </span>
-              </a>
+              </button>
+              <ul class="select-lang">
+                <li class="lang-item active"><a href="">KR</a></li>
+                <li class="lang-item"><a href="">EN</a></li>
+              </ul>
             </li>
           </ul>
         </nav>
@@ -103,6 +107,23 @@
             증명하기 어려운 개인의 창작 활동과 프리랜서 경험을 보호하고<br />
             신뢰할 만한 자산으로 측정하기 위해서는 어떻게 관리해야 할까요?
           </p>
+        </div>
+        <div class="scroll-down">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path d="M40 40V0H0v40z"></path>
+              <g stroke="#FFF" stroke-width="2">
+                <path
+                  d="M20 31.18V6.566M31.429 21.29 20 32.72 8.571 21.29"
+                ></path>
+              </g>
+            </g>
+          </svg>
         </div>
       </section>
       <section class="sc-showcase">
@@ -142,13 +163,13 @@
         </div>
       </section>
       <section class="sc-prove">
-        <div class="prove-box-before"></div>
+        <div class="box-before-prove"></div>
         <div class="prove-content">
           <p>가치를</p>
           <p>증명하고 싶다면</p>
           <p>누구든지.</p>
         </div>
-        <div class="prove-box-after"></div>
+        <div class="box-after-prove"></div>
       </section>
       <section class="sc-gallery">
         <div class="gallery-wrapper">
@@ -271,7 +292,7 @@
         <div class="safe-slide">
           <div class="title">안전하고<br />대체불가능한<br />DATA ID.</div>
           <ul class="card-list">
-            <li class="card-item1">
+            <li class="card-item1 safe-item">
               <div class="card-header">
                 <div class="card-title">CREATOR</div>
                 <span>****</span>
@@ -282,7 +303,7 @@
                 <i class="icon-info"></i>
               </div>
             </li>
-            <li class="card-item2">
+            <li class="card-item2 safe-item">
               <div class="card-header">
                 <div class="card-title">GIG WORKER</div>
                 <span>****</span>
@@ -293,7 +314,7 @@
                 <i class="icon-info"></i>
               </div>
             </li>
-            <li class="card-item3">
+            <li class="card-item3 safe-item">
               <div class="card-header">
                 <div class="card-title">SELF EMPLOYED</div>
                 <span>****</span>
@@ -304,7 +325,7 @@
                 <i class="icon-info"></i>
               </div>
             </li>
-            <li class="card-item4">
+            <li class="card-item4 color-card">
               <i class="icon-unlock"></i>
               <i class="icon-lock"></i>
             </li>
@@ -313,7 +334,7 @@
       </section>
       <section class="sc-service">
         <div class="col-left">
-          <div class="card-item4"><span>DATA ID</span></div>
+          <div class="color-card"><span class="card-text">DATA ID</span></div>
         </div>
         <div class="col-right">
           <section class="service-intro">
@@ -369,18 +390,26 @@
             </ul>
           </section>
           <section class="service-card">
+            <svg class="img-filter">
+              <filter id="sharpBlur">
+                <feGaussianBlur stdDeviation="36"></feGaussianBlur>
+                <feColorMatrix
+                  type="matrix"
+                  values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0"
+                ></feColorMatrix>
+                <feComposite in2="SourceGraphic" operator="in"></feComposite>
+              </filter>
+            </svg>
             <ul class="card-list">
-              <li>
+              <li class="card-item1">
+                <div class="bg-img"></div>
                 <div class="card-header">
                   <div class="card-title">CREATOR</div>
                   <span>****</span>
                 </div>
                 <div class="card-content">
-                  <p>
-                    크리에이터들이 만들어 낸 다양한 창작물과 재능을 자산화,
-                    토큰화 할 수 있는 기반을 만들어요.
-                  </p>
-                  <div class="bg-img"></div>
+                  크리에이터들이 만들어 낸 다양한 창작물과 재능을 자산화, 토큰화
+                  할 수 있는 기반을 만들어요.
                 </div>
                 <div class="card-footer">
                   <div class="profile">
@@ -390,42 +419,38 @@
                   <i class="icon-info"></i>
                 </div>
               </li>
-              <li>
+              <li class="card-item2">
+                <div class="bg-img"></div>
                 <div class="card-header">
                   <div class="card-title">GIG WORKER</div>
                   <span>****</span>
                 </div>
                 <div class="card-content">
-                  <p>
-                    블록체인 기반의 거래 구조 덕분에 긱 워커의 재능과 경력,
-                    평판을 투명하게 거래하고 흩어진 이력을 관리할 수 있어요.
-                  </p>
-                  <div class="bg-img"></div>
+                  블록체인 기반의 거래 구조 덕분에 긱 워커의 재능과 경력, 평판을
+                  투명하게 거래하고 흩어진 이력을 관리할 수 있어요.
                 </div>
                 <div class="card-footer">
                   <div class="profile">
                     <span class="profile-img"></span>
-                    <span class="profile-id">model_top</span>
+                    <span class="profile-id">elon.M</span>
                   </div>
                   <i class="icon-info"></i>
                 </div>
               </li>
-              <li>
+              <li class="card-item3">
+                <div class="bg-img"></div>
                 <div class="card-header">
                   <div class="card-title">SELF EMPLOYED</div>
                   <span>****</span>
                 </div>
                 <div class="card-content">
-                  <p>
-                    개인사업자의 소득과 거래 이력, 경험과 전문성을 쉽게 증명할
-                    수 있어서 금융 상품을 이용하기도 더 쉬워져요.
-                  </p>
-                  <div class="bg-img"></div>
+                  개인사업자의 소득과 거래 이력, 경험과 전문성을 쉽게 증명할 수
+                  있어서 금융 상품을 이용하기도 더 쉬워져요.
                 </div>
                 <div class="card-footer">
                   <div class="profile">
                     <span class="profile-img"></span>
-                    <span class="profile-id">model_top</span>
+                    <span class="profile-id">cafe22</span>
                   </div>
                   <i class="icon-info"></i>
                 </div>
@@ -435,6 +460,239 @@
           <section class="service-outro">
             <div>누구든<br />무엇이든</div>
           </section>
+        </div>
+      </section>
+      <section class="sc-talent">
+        <div class="talent-wrapper">
+          <div class="title">
+            재능 자산을 기축으로<br />시장은 변화하고 있어요.
+          </div>
+          <div class="content">
+            과거에는 국가와 기관에 대한 신뢰를 바탕으로 법정 화폐나<br />
+            증권을 거래했다면, 오늘날에는 탈중앙화가 빠르게 이루어져<br />
+            암호화폐와 NFT같은 가상자산 금융 채널이 늘고 있죠.<br />
+            최근에는 긱 워커와 크리에이터의 숫자와 소득이 증가하며<br />
+            국내외 기업들이 빅데이터를 활용해 이들과 새로운 금융 서비스를<br />
+            발전시키겠다고 선언하는 사례가 늘고 있어요.
+          </div>
+        </div>
+      </section>
+      <section class="sc-global">
+        <div class="box-before-global"></div>
+        <div class="global-content">
+          <p>글로벌 블록체인</p>
+          <p>네트워크를 기반으로</p>
+          <p>시작하는 도약.</p>
+        </div>
+        <div class="box-after-global"></div>
+      </section>
+      <section class="sc-finance">
+        <div class="finance-slide">
+          <div class="title slide-title">전통 금융에서<br />미래 금융으로.</div>
+          <ul class="card-list">
+            <li class="card-item1">
+              <div class="card-header">
+                <div class="card-title">전통자산</div>
+                <div class="caption">
+                  <span class="caption-star">****</span>
+                  <span class="caption-desc">기축자산</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <ul class="inner-card-list">
+                  <li>
+                    <strong>상품</strong>
+                    <span>금융상품, 서비스</span>
+                  </li>
+                  <li>
+                    <strong>자산</strong>
+                    <span>FIAT, 유가증권</span>
+                  </li>
+                  <li>
+                    <strong>신뢰</strong>
+                    <span>국가, 기관 등 중앙체계에 대한 신뢰</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span>핀테크 등 B2C 서비스</span>
+                <i class="icon-info"></i>
+              </div>
+            </li>
+            <li class="card-item2">
+              <div class="card-header">
+                <div class="card-title">가상자산</div>
+                <div class="caption">
+                  <span class="caption-star">****</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <ul class="inner-card-list">
+                  <li>
+                    <strong>상품</strong>
+                    <span>거래소, DeFi</span>
+                  </li>
+                  <li>
+                    <strong>자산</strong>
+                    <span>Digital Currency</span>
+                  </li>
+                  <li>
+                    <strong>신뢰</strong>
+                    <span>블록체인</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span>월렛 등 B2C 서비스</span>
+                <i class="icon-info"></i>
+              </div>
+            </li>
+            <li class="card-item3">
+              <div class="bg-img"></div>
+              <div class="card-header">
+                <div class="card-title">재능자산</div>
+                <div class="caption">
+                  <span class="caption-star">****</span>
+                  <span class="caption-desc">기축자산</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <ul class="inner-card-list">
+                  <li>
+                    <strong>상품</strong>
+                    <span>Gig Finance + Talent Assetization</span>
+                  </li>
+                  <li>
+                    <strong>자산</strong>
+                    <span>DATA ID + P3</span>
+                  </li>
+                  <li>
+                    <strong>신뢰</strong>
+                    <span>블록체인 DATA ID 네트워크</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span>Talent Marketplace</span>
+                <i class="icon-info"></i>
+              </div>
+            </li>
+          </ul>
+          <div class="slide-description">
+            <p>
+              엔터프라이즈블록체인이 글로벌 블록체인 네트워크 DATA ID를 통해
+              만들어갈 긱 이코노미와 크리에이터 이코노미 생태계를 기대해주세요.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="sc-creator">
+        <div class="creator-wrapper">
+          <img src="./assets/images/creator.jpg" alt="크리에이터 최소라" />
+          <div class="creator-content">
+            <div class="creator-title">
+              크리에이터<br />
+              최소라 님의<br />
+              DATA ID
+            </div>
+            <div class="creator-description">
+              이렇게 기록하고, 증명하고,<br />
+              성장할 수 있어요.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sc-smart">
+        <div class="smart-slide">
+          <div class="title slide-title">슬기롭게<br />사용하는 법.</div>
+          <ul class="card-list">
+            <li class="card-item1">
+              <div class="bg-img"></div>
+              <div class="card-header">
+                <div class="card-title">CHOI<br />SORA</div>
+                <span>****</span>
+              </div>
+              <div class="card-content">
+                베이커리 레시피를 창작하고 유튜브와 쿠킹 클래스를 운영하는
+                크리에이터 최소라 님은 쿠킹 클래스 수강 이력, 레시피 사용 이력을
+                DATA ID에 기록해 관리하고 있어요.
+              </div>
+              <div class="card-footer">
+                <div class="profile">
+                  <span class="profile-img"></span>
+                  <span class="profile-id">bakor_sora</span>
+                </div>
+                <i class="icon-info"></i>
+              </div>
+            </li>
+            <li class="card-item2">
+              <div class="card-header">
+                <div class="card-title">
+                  CERTIFICATE<br />
+                  DATA ID
+                </div>
+              </div>
+              <div class="card-content">
+                <p>
+                  아카데미 수료증과 자격증, 학위 증명서 등 여러 취득 내용을 모두
+                  기록할 수 있어요.
+                </p>
+                <p>- 르꼬르동블루 제과 수료</p>
+                <p>- 나카무라 조리제과 수료</p>
+              </div>
+              <div class="card-footer">
+                <div class="profile">
+                  <span class="profile-img"></span>
+                  <span class="profile-id">bakor_sora</span>
+                </div>
+              </div>
+            </li>
+            <li class="card-item3">
+              <div class="card-header">
+                <div class="card-title">ASSET<br />DATA ID</div>
+              </div>
+              <div class="card-content">
+                <p>
+                  개발한 오리지널 레시피를 등록해두면 레시피에 대한 권리를
+                  지키기 쉬워져요.
+                </p>
+                <p>- 최소라 쿠키 레시피</p>
+                <p>- 최소라 마카롱 레시피</p>
+              </div>
+              <div class="card-footer">
+                <div class="profile">
+                  <span class="profile-img"></span>
+                  <span class="profile-id">bakor_sora</span>
+                </div>
+              </div>
+            </li>
+            <li class="card-item4">
+              <div class="card-header">
+                <div class="card-title">CONTRACT DATA ID</div>
+              </div>
+              <div class="card-content">
+                <p>
+                  누군가 내 레시피를 개량해서 다른 레시피를 개발하기 원한다면,
+                  상대방과 스마트 계약을 체결할 수 있어요.
+                </p>
+                <p>- 최소라 쿠키 레시피_오곡버전_나카페</p>
+              </div>
+              <div class="card-footer">
+                <div class="profile">
+                  <span class="profile-img"></span>
+                  <span class="profile-id">bakor_sora</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="slide-description">
+            <p>
+              이력과 거래 내역이 모두<br />
+              DATA ID로 생성되고,<br />
+              스마트 계약으로 재능을<br />
+              손쉽게 자산화 할 수 있어요.
+            </p>
+          </div>
         </div>
       </section>
     </main>

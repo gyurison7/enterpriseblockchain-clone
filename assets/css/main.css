@@ -338,22 +338,50 @@
   font-weight: 700;
   line-height: 1.67;
 }
-.sc-possible .possible-data {
+
+.sc-possible .possible-cube {
   width: calc(100vw - 100px);
   padding-left: 100px;
 }
-.sc-possible .img-wrapper {
+.sc-possible .possible-cube .cube-wrapper {
   position: relative;
   width: 506px;
   margin: 0 auto;
 }
-.sc-possible .possible-data .img {
-  position: relative;
+.sc-possible .possible-cube .img {
   width: 100%;
   max-width: 100%;
   background: url("../images/possible5.png") no-repeat 50% / cover;
   width: 506px;
   height: 536px;
+}
+.sc-possible .possible-cube [class*="text-item"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+.sc-possible .possible-cube .text-item1 {
+  top: 10%;
+  left: 44%;
+}
+.sc-possible .possible-cube .text-item2 {
+  left: 9%;
+  bottom: 25%;
+}
+.sc-possible .possible-cube .text-item3 {
+  bottom: 25%;
+  right: 9%;
+}
+.sc-possible .possible-cube .text-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.42;
+}
+.sc-possible .possible-cube .text-desc {
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 700;
 }
 .sc-possible .possible-bottom {
   position: absolute;
@@ -400,13 +428,13 @@
   text-align: center;
   color: #fff;
 }
-.sc-banner .box-container .box:first-child {
+.sc-banner .box-container .box1 {
   background-color: #e657af;
 }
-.sc-banner .box-container .box:nth-child(2) {
+.sc-banner .box-container .box2 {
   background-color: #0049ff;
 }
-.sc-banner .box-container .box:last-child {
+.sc-banner .box-container .box3 {
   background-color: #00bf41;
 }
 .sc-banner .banner-content {
@@ -647,6 +675,11 @@
   /* margin-top: calc(var(--full-height, 100vh) * -1); */
   margin-left: -220px;
 }
+@media screen and (max-width: 1536px) {
+  .sc-service .service-card {
+    margin-left: -168px;
+  }
+}
 .sc-service .img-filter {
   display: none;
 }
@@ -851,6 +884,7 @@
 .sc-creator {
   position: relative;
   height: calc(var(--full-height, 100vh) * 2.2);
+  background: #fff;
 }
 .sc-creator .creator-wrapper {
   position: sticky;
@@ -885,7 +919,7 @@
 
 .sc-smart {
   height: max(
-    var(--full-height, 100vh) * 3 + var(--scroll-width) * 1px,
+    var(--full-height, 100vh) * 2 + var(--scroll-width) * 1px,
     var(--full-height, 100vh)
   );
   background: #fff;
@@ -910,4 +944,115 @@
 }
 .sc-smart .card-content p:last-child {
   margin-top: 8px;
+}
+
+.sc-ground {
+  padding: 200px 100px;
+  background: #fff;
+}
+.sc-ground .ground-title {
+  margin-bottom: 34px;
+  font-size: 72px;
+  line-height: 1.28;
+  font-weight: 600;
+}
+.sc-ground .ground-content {
+  font-size: 24px;
+  line-height: 1.67;
+  font-weight: 600;
+}
+.sc-ground .btn-area {
+  display: flex;
+  margin-top: 70px;
+}
+.sc-ground .btn-area a {
+  display: block;
+  font-size: 18px;
+  line-height: 2.22;
+  font-weight: 600;
+  border: 2px solid #000;
+  padding: 3px 21px 1px;
+  margin-right: 18px;
+}
+.sc-ground .btn-area a:first-child {
+  background: #000;
+  color: #fff;
+}
+
+.infinite-banner {
+  position: relative;
+  overflow-x: hidden;
+  /* margin-left: -700px; */
+  z-index: 1;
+}
+@keyframes banner {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.infinite-banner .banner-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: 100%;
+  animation: banner 15s linear infinite;
+}
+.infinite-banner .banner-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(36px);
+}
+.infinite-banner .banner-item {
+  width: 235px;
+  height: 60px;
+}
+.infinite-banner .banner-item:nth-child(3n-2) {
+  background: #00bf41;
+}
+.infinite-banner .banner-item:nth-child(3n-1) {
+  background: #0049ff;
+}
+.infinite-banner .banner-item:nth-child(3n) {
+  background: #e657af;
+}
+
+.infinite-banner .banner-item span {
+  position: relative;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.67;
+  font-weight: 600;
+  padding: 10px 72px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.scroll-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  cursor: pointer;
+  right: 100px;
+  bottom: 100px;
+  z-index: 50;
+  background-color: #111;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+.scroll-top i::after {
+  display: block;
+  content: "";
+  width: 30px;
+  height: 35px;
+  background-image: url("../images/top-btn.svg");
 }

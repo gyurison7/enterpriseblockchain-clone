@@ -382,7 +382,7 @@ setupResponsiveAnimation();
 
 // 창크기가 변경될 때
 window.addEventListener("resize", () => {
-  ScrollTrigger.getAll().forEach((t) => t.kill());
+  ScrollTrigger.getAll().forEach((t) => t.kill()); // 모든 ScrollTrigger 인스턴스 제거
   setupBasicAnimation();
   setupXAnimation();
   setupResponsiveAnimation();
@@ -391,7 +391,7 @@ window.addEventListener("resize", () => {
 
 // 반응형 쿼리 상태가 변경될 때
 largeScreen.addEventListener("change", () => {
-  ScrollTrigger.getAll().forEach((t) => t.kill());
+  ScrollTrigger.getAll().forEach((t) => t.kill()); // 모든 ScrollTrigger 인스턴스 제거
   setupBasicAnimation();
   setupXAnimation();
   setupResponsiveAnimation();

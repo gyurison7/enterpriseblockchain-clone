@@ -71,7 +71,7 @@
   font-weight: 600;
 }
 .gnb.black svg path,
-.gnb.black .gnb-list .gnb-item {
+.gnb.black .gnb-item {
   color: #000;
   stroke: #000;
 }
@@ -84,9 +84,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   background: #000;
   color: #fff;
   padding: 58px 100px;
+  z-index: 2;
 }
 .footer .address {
   font-size: 14px;

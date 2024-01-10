@@ -11,3 +11,12 @@
   --full-height: 923px;
   --scroll-width: 357;
 }
+
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+.hide {
+  opacity: 0;
+}

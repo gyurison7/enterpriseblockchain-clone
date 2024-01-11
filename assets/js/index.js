@@ -290,7 +290,7 @@ ScrollTrigger.create({
   },
 });
 
-const outromotion = gsap.timeline({
+const outroMotion = gsap.timeline({
   scrollTrigger: {
     trigger: ".sc-outro",
     start: "0% 0%",
@@ -299,9 +299,9 @@ const outromotion = gsap.timeline({
     // markers: true,
   },
 });
-outromotion
-  .to(".sc-outro .col-right", { opacity: 1 })
-  .to(".sc-outro .color-card", { "--opacity": 1 });
+outroMotion
+  .to(".sc-outro .col-right", { opacity: 1 }, "a")
+  .to(".sc-outro .col-left .color-card", { "--opacity": 1 }, "a");
 
 // sc-change
 ScrollTrigger.create({
@@ -388,7 +388,7 @@ gsap.to(".sc-finance .finance-slide", {
 // sc-creator
 gsap.to(".sc-creator .creator-content", {
   scrollTrigger: {
-    trigger: ".sc-creator .creator-content",
+    trigger: ".sc-creator",
     start: "0% 20%",
     end: "100% 0%",
     scrub: true,
@@ -432,15 +432,19 @@ gsap.to(".sc-smart .smart-slide", {
 });
 
 // infinite-banner
-gsap.to(".infinite-banner", {
+const infiniteMotion = gsap.timeline({
   scrollTrigger: {
     trigger: ".infinite-banner",
     start: "100% 90%",
+    end: "100% 100%",
     toggleActions: "play none none reverse",
     // markers: true,
+    onEnterBack: () => $(".infinite-banner").removeClass("on"),
   },
-  y: "-100%",
 });
+infiniteMotion
+  .to(".infinite-banner", { y: "-100%" })
+  .call(() => $(".infinite-banner").addClass("on"));
 
 // scroll-top
 ScrollTrigger.create({

@@ -43,19 +43,17 @@ const introMotion = gsap.timeline({
     scrub: true,
   },
 });
-document
-  .querySelectorAll(".intro-description p")
-  .forEach((elem, index, array) => {
-    introMotion.to(elem, { opacity: 1 });
-    if (index !== array.length - 1) {
-      // 마지막 요소를 제외한 모든 요소
-      if (index === 0) {
-        // 첫번째 요소
-        introMotion.to(".sc-intro .intro-wrapper", { "--opacity": 1 }); // 배경 dimm 처리
-      }
-      introMotion.to(elem, { opacity: 0 });
+document.querySelectorAll(".intro-description p").forEach((elem, index, array) => {
+  introMotion.to(elem, { opacity: 1 });
+  if (index !== array.length - 1) {
+    // 마지막 요소를 제외한 모든 요소
+    if (index === 0) {
+      // 첫번째 요소
+      introMotion.to(".sc-intro .intro-wrapper", { "--opacity": 1 }); // 배경 dimm 처리
     }
-  });
+    introMotion.to(elem, { opacity: 0 });
+  }
+});
 
 gsap.to(".sc-intro .down-arrow", {
   scrollTrigger: {
@@ -95,12 +93,10 @@ ScrollTrigger.create({
   end: "50% 100%",
   scrub: true,
   onEnter: function () {
-    $(".logo-img").addClass("black");
-    $(".gnb").addClass("black");
+    $(".logo-img, .gnb").addClass("black");
   },
   onLeaveBack: function () {
-    $(".logo-img").removeClass("black");
-    $(".gnb").removeClass("black");
+    $(".logo-img, .gnb").removeClass("black");
   },
 });
 
@@ -143,8 +139,8 @@ gsap.set(".sc-banner .box3", { x: 300 });
 const bannerMotion1 = gsap.timeline({
   scrollTrigger: {
     trigger: ".sc-banner",
-    start: "0% 98%",
-    end: "100% 85%",
+    start: "0% 100%",
+    end: "100% 100%",
     scrub: true,
     // markers: true,
   },
@@ -157,8 +153,8 @@ bannerMotion1
 const bannerMotion2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".sc-banner",
-    start: "0% 35%",
-    end: "100% 35%",
+    start: "0% 40%",
+    end: "100% 40%",
     scrub: true,
     // markers: true,
     onEnter: function () {
@@ -201,9 +197,7 @@ const safeMotion2 = gsap.timeline({
     // markers: true,
   },
 });
-safeMotion2
-  .to(".sc-safe .icon-unlock", { opacity: 0 })
-  .to(".sc-safe .icon-lock", { opacity: 1 });
+safeMotion2.to(".sc-safe .icon-unlock", { opacity: 0 }).to(".sc-safe .icon-lock", { opacity: 1 });
 
 // sc-better
 ScrollTrigger.create({
@@ -356,26 +350,23 @@ const financeMotion = gsap.timeline({
   },
 });
 financeMotion.to(".sc-finance .card-content", { opacity: 1 }, "a");
-financeMotion.to(
-  ".sc-finance .card-item3",
-  { "--filter": "url(#sharpBlur)" },
-  "a"
-);
+financeMotion.to(".sc-finance .card-item3", { "--filter": "url(#sharpBlur)" }, "a");
 
 // finance-slide 가로 이동
 gsap.to(".sc-finance .finance-slide", {
   scrollTrigger: {
     trigger: ".sc-finance",
-    start: "10% 0%",
-    end: "100% 0%",
+    start: "0% 0%",
+    end: "100% 100%",
     scrub: true,
     invalidateOnRefresh: true,
     // markers: true,
-    onUpdate: function (slef) {
+    toggleClass: { targets: $(".slide-bottom"), className: "on" },
+    onUpdate: function (self) {
       if (self.progress >= 0.5) {
-        console.log("안녕");
+        $(".animation-txt").text("미래금융");
       } else {
-        console.log("!!!");
+        $(".animation-txt").text("전통금융");
       }
     },
   },
@@ -420,7 +411,7 @@ gsap.to(".sc-smart .smart-slide", {
   scrollTrigger: {
     trigger: ".sc-smart",
     start: "10% 0%",
-    end: "100% 0%",
+    end: "100% 100%",
     scrub: true,
     invalidateOnRefresh: true,
     // markers: true,
@@ -447,9 +438,10 @@ infiniteMotion
   .call(() => $(".infinite-banner").addClass("on"));
 
 // scroll-top
+const scrollHeight = $(".sc-intro").offset().top + $(".sc-intro").outerHeight();
 ScrollTrigger.create({
   onUpdate: (self) => {
-    if (self.direction === -1) {
+    if (window.scrollY >= scrollHeight && self.direction === -1) {
       gsap.to(".scroll-top", { opacity: 1 });
     } else {
       gsap.to(".scroll-top", { opacity: 0 });

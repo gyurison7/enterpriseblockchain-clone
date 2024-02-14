@@ -1,4 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Noto+Sans+KR&family=Roboto:wght@100&family=Rubik+Bubbles&display=swap");
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "NotoSansCJKkr";
+  src: url("../fonts/NotoSansCJKkr-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "NotoSansCJKkr";
+  src: url("../fonts/NotoSansCJKkr-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "NotoSansCJKkr";
+  src: url("../fonts/NotoSansCJKkr-Light.woff2") format("woff2");
+  font-weight: 300;
+}
 
 * {
   margin: 0;

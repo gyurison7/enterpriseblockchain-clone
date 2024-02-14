@@ -50,7 +50,7 @@
   transform: translate(-50%, -50%);
   font-size: 52px;
   font-weight: 700;
-  line-height: 1.67;
+  line-height: 1.35;
   color: #fff;
   opacity: 0;
 }
@@ -158,11 +158,13 @@
 
 /* 공통 */
 .common-title {
+  max-width: 50%;
   font-size: 72px;
   font-weight: 600;
   line-height: 1.28;
 }
 .common-content {
+  max-width: 50%;
   margin-left: 50%;
   font-size: 24px;
   font-weight: 600;
@@ -284,6 +286,7 @@
   color: #000;
   font-weight: 700;
   padding-right: 160px;
+  white-space: nowrap;
 }
 .sc-possible .possible-list {
   display: flex;
@@ -418,15 +421,22 @@
 
 .sc-change,
 .sc-easy {
+  display: flex;
+  align-items: center;
   height: 100vh;
+  padding: 100px;
+}
+@media (max-width: 1536px) {
+  .sc-change,
+  .sc-easy {
+    margin: 100px 0;
+  }
 }
 .sc-change .change-wrapper,
 .sc-easy .easy-wrapper {
   position: relative;
-  margin: 0 100px;
-  min-height: inherit;
   width: 100%;
-  padding: 200px 0;
+  min-height: inherit;
 }
 
 .sc-banner {
@@ -437,6 +447,7 @@
   display: flex;
   position: relative;
   height: 175px;
+  transition: 0.3s;
 }
 .sc-banner .box-wrapper.filter {
   filter: blur(50px);
@@ -551,8 +562,7 @@
   position: relative;
   border: 2px solid transparent;
   padding: 0;
-  background-image: linear-gradient(#000, #000),
-    linear-gradient(315deg, #e657af, #0049ff, #43cf2e);
+  background-image: linear-gradient(#000, #000), linear-gradient(315deg, #e657af, #0049ff, #43cf2e);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -617,6 +627,11 @@
   padding: 0 100px;
   margin-top: -100vh;
 }
+@media (max-width: 1536px) {
+  .sc-better {
+    height: 500vh;
+  }
+}
 .sc-better .better-wrapper {
   display: flex;
   height: 600vh;
@@ -630,8 +645,8 @@
   height: 100vh;
 }
 .sc-better .col-right {
-  /* margin-left: 400px; */
-  padding: 100vh 0 100vh 18%;
+  margin-left: 12vw;
+  padding: 100vh 0;
 }
 .sc-better .service-intro .main-title {
   font-size: 72px;
@@ -664,8 +679,7 @@
   height: 200px;
   border-radius: 20px;
   border: 2px solid transparent;
-  background-image: linear-gradient(#000, #000),
-    linear-gradient(300deg, #e657af, #0049ff, #43cf2e);
+  background-image: linear-gradient(#000, #000), linear-gradient(300deg, #e657af, #0049ff, #43cf2e);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -702,13 +716,17 @@
 }
 .sc-better .running-service .service-list {
   display: flex;
+  gap: 50px;
   margin-top: 80px;
 }
 .sc-better .running-service .service-list li {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 300px;
-  margin-right: 50px;
+  max-width: 300px;
+}
+.sc-better .running-service .service-list img {
+  width: 100%;
 }
 .sc-better .running-service .service-list p {
   margin-top: 24px;
@@ -902,6 +920,7 @@
 .sc-finance .slide-title {
   padding-right: 160px;
   font-weight: 700;
+  white-space: nowrap;
 }
 .sc-smart .card-list,
 .sc-finance .card-list {
@@ -981,12 +1000,15 @@
   left: 0;
   bottom: 0;
   z-index: 40;
-  padding: 10px 0 calc(var(--full-height, 100vh) * 0.065);
   width: 100%;
   background-image: linear-gradient(180deg, hsla(0, 0%, 98%, 0), #fff);
-  /* opacity: 0;
-  visibility: hidden; */
-  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.sc-finance .slide-bottom.on {
+  opacity: 1;
+  visibility: visible;
 }
 .sc-finance .right-arrow {
   display: flex;
@@ -999,11 +1021,22 @@
   height: 27px;
   transform: rotate(45deg);
   border-style: solid;
-  animation: a 1s infinite alternate;
+  animation: txtAnimation 1s infinite alternate;
   border-width: 8px;
   border-left: 0;
   border-bottom: 0;
   margin-right: -6px;
+}
+@keyframes txtAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .sc-finance .right-arrow .arrow-item1 {
   border-image: linear-gradient(60deg, #e657af 60%, #0049ff 160%);
@@ -1039,7 +1072,7 @@
   border-image-slice: 1;
   animation-delay: 0.7s;
 }
-.sc-finance .slide-bottom span {
+.sc-finance .slide-bottom .animation-txt {
   margin-top: 15px;
   font-size: 24px;
   line-height: 1.67;
@@ -1055,7 +1088,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  height: var(--full-height, 100vh);
+  height: 100vh;
 }
 .sc-creator img {
   width: 100%;
@@ -1182,7 +1215,7 @@
 .infinite-banner .banner-wrapper {
   display: flex;
   justify-content: flex-end;
-  animation: banner 15s linear infinite;
+  animation: banner 20s linear infinite;
 }
 .infinite-banner.on .banner-wrapper::before {
   content: "";
@@ -1217,26 +1250,4 @@
   font-weight: 600;
   padding: 10px 72px;
   white-space: nowrap;
-}
-
-.scroll-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  cursor: pointer;
-  right: 100px;
-  bottom: 100px;
-  z-index: 50;
-  background-color: #111;
-  width: 50px;
-  height: 50px;
-  opacity: 0;
-}
-.scroll-top i::after {
-  display: block;
-  content: "";
-  width: 30px;
-  height: 35px;
-  background-image: url("../svgs/top-btn.svg");
 }

@@ -315,6 +315,17 @@ ScrollTrigger.create({
 });
 
 // sc-value, sc-global
+function updatePosition() {
+  gsap.set("[class*='box-before-']", { x: $("[class*='box-before-']").outerWidth() });
+  gsap.set("[class*='box-after-']", { x: -$("[class*='box-before-']").outerWidth() });
+}
+
+$(window).on("resize", function () {
+  updatePosition();
+});
+
+updatePosition();
+
 $(".side-animation").each(function () {
   const sideAnimation = gsap.timeline({
     scrollTrigger: {

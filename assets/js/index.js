@@ -317,7 +317,7 @@ ScrollTrigger.create({
 // sc-value, sc-global
 function updatePosition() {
   gsap.set("[class*='box-before-']", { x: $("[class*='box-before-']").outerWidth() });
-  gsap.set("[class*='box-after-']", { x: -$("[class*='box-before-']").outerWidth() });
+  gsap.set("[class*='box-after-']", { x: -$("[class*='box-after-']").outerWidth() });
 }
 
 $(window).on("resize", function () {

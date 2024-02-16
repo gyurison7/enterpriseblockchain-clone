@@ -314,18 +314,6 @@ ScrollTrigger.create({
   },
 });
 
-// sc-value, sc-global
-function updatePosition() {
-  gsap.set("[class*='box-before-']", { x: $("[class*='box-before-']").outerWidth() });
-  gsap.set("[class*='box-after-']", { x: -$("[class*='box-after-']").outerWidth() });
-}
-
-$(window).on("resize", function () {
-  updatePosition();
-});
-
-updatePosition();
-
 $(".side-animation").each(function () {
   const sideAnimation = gsap.timeline({
     scrollTrigger: {
@@ -345,8 +333,8 @@ $(".side-animation").each(function () {
     after = 120;
   }
   sideAnimation
-    .to($(this).find("[class*='box-before-']"), { xPercent: -100 }, "a")
-    .to($(this).find("[class*='box-after-']"), { xPercent: 100 }, "a")
+    .from($(this).find("[class*='box-before-']"), { xPercent: 100 }, "a")
+    .from($(this).find("[class*='box-after-']"), { xPercent: -100 }, "a")
     .to($(this).find(".content p:first-child span"), { xPercent: before }, "a")
     .to($(this).find(".content p:last-child span"), { xPercent: after }, "a");
 });

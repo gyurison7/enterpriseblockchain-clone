@@ -335,8 +335,8 @@ $(".side-animation").each(function () {
   sideAnimation
     .from($(this).find("[class*='box-before-']"), { xPercent: 100 }, "a")
     .from($(this).find("[class*='box-after-']"), { xPercent: -100 }, "a")
-    .to($(this).find(".content p:first-child span"), { xPercent: before }, "a")
-    .to($(this).find(".content p:last-child span"), { xPercent: after }, "a");
+    .to($(this).find(".title p:first-child span"), { xPercent: before }, "a")
+    .to($(this).find(".title p:last-child span"), { xPercent: after }, "a");
 });
 
 // sc-finance

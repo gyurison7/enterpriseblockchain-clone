@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/layout.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
@@ -33,6 +34,7 @@
             <li class="gnb-item"><a href="">제휴문의</a></li>
             <li class="gnb-item">
               <button class="btn-lang">
+                <span class="blind">언어 선택 버튼</span>
                 <span>
                   <svg
                     width="24"
@@ -110,6 +112,7 @@
             </p>
           </div>
           <div class="down-arrow">
+            <span class="blind">스크롤 다운</span>
             <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fill-rule="evenodd">
                 <path d="M40 40V0H0v40z"></path>
@@ -162,13 +165,12 @@
       </section>
 
       <section class="sc-value side-animation">
-        <h2 class="blind">가치를 증명하고 싶다면 누구든지 가능</h2>
         <div class="box-before-value"></div>
-        <div class="content">
+        <h2 class="title">
           <p><span>가치를</span></p>
           <p>증명하고 싶다면</p>
           <p><span>누구든지.</span></p>
-        </div>
+        </h2>
         <div class="box-after-value"></div>
       </section>
 
@@ -502,13 +504,12 @@
       </section>
 
       <section class="sc-global side-animation">
-        <h2 class="blind">블록체인 네트워크와 함께하는 글로벌 도전</h2>
         <div class="box-before-global"></div>
-        <div class="content">
+        <h2 class="title">
           <p><span>글로벌 블록체인</span></p>
           <p>네트워크를 기반으로</p>
           <p><span>시작하는 도약.</span></p>
-        </div>
+        </h2>
         <div class="box-after-global"></div>
       </section>
 
@@ -612,6 +613,7 @@
         </div>
         <div class="slide-bottom">
           <div class="right-arrow">
+            <span class="blind">오른쪽 화살표</span>
             <span class="arrow-item1"></span>
             <span class="arrow-item2"></span>
             <span class="arrow-item3"></span>
@@ -620,7 +622,7 @@
             <span class="arrow-item6"></span>
             <span class="arrow-item7"></span>
           </div>
-          <span class="animation-txt">전통금융</span>
+          <span class="animation-txt" aria-live="polite">전통금융</span>
         </div>
       </section>
 
@@ -744,7 +746,7 @@
       </section>
 
       <section class="infinite-banner">
-        <h2 class="blind">JOIN us</h2>
+        <h2 class="blind">JOIN us 무한 배너</h2>
         <div class="banner-wrapper">
           <div class="banner-item">
             <span>JOIN <i>us</i></span>
@@ -836,7 +838,7 @@
         <small>Copyright &copy; Enterprise Blockchain co., ltd. All rights reserved.</small>
       </address>
       <div class="footer-logo">
-        <img src="./assets/images/footer-logo.png" alt="" />
+        <img src="./assets/images/footer-logo.png" alt="엔터프라이즈블록체인 푸터 로고" />
       </div>
     </footer>
 

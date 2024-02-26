@@ -196,8 +196,8 @@
   bottom: 0;
   left: 0;
 }
-.sc-global .content,
-.sc-value .content {
+.sc-global .title,
+.sc-value .title {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -205,14 +205,14 @@
   text-align: center;
   color: #fff;
 }
-.sc-global .content p,
-.sc-value .content p {
+.sc-global .title p,
+.sc-value .title p {
   font-size: 72px;
   line-height: 1.28;
   font-weight: 600;
 }
-.sc-global .content p span,
-.sc-value .content p span {
+.sc-global .title p span,
+.sc-value .title p span {
   display: inline-block;
 }
 
